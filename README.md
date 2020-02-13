@@ -10,7 +10,7 @@ User Login/Authentication demonstration application developed in Nodejs using Ex
 
  A simple login app with MySQL, Node, Express and HTML. MVC design pattern and used Node & MySQL to query and route data in the app and HRML to generate the view.
 
-### Plans are in place to scale thhis website up. Reach me out at amitabh.k@hotmail.com for collaborating opportunities.
+### Plans are in place to scale this website up. Reach me out at amitabh.k@hotmail.com for collaborating opportunities.
 
 ## Application Demo
 
