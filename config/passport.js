@@ -1,77 +1,49 @@
+var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 
-var mysql = require('mysql');
-var bcrypt = require('bcrypt-nodejs');
-var dbconfig = require('./database');
-var connection = mysql.createConnection(dbconfig.connection);
+var db = require("../models");
 
-connection.query('USE ' + dbconfig.database);
-
-module.exports = function(passport) {
- passport.serializeUser(function(user, done){
-  done(null, user.id);
- });
-
- passport.deserializeUser(function(id, done){
-  connection.query("SELECT * FROM users WHERE id = ? ", [id],
-   function(err, rows){
-    done(err, rows[0]);
-   });
- });
-
- passport.use(
-  'local-signup',
-  new LocalStrategy({
-   usernameField : 'username',
-   passwordField: 'password',
-   passReqToCallback: true
+// Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
+passport.use(new LocalStrategy(
+  // Our user will sign in using an email, rather than a "username"
+  {
+    usernameField: "email"
   },
-  function(req, username, password, done){
-   connection.query("SELECT * FROM users WHERE username = ? ", 
-   [username], function(err, rows){
-    if(err)
-     return done(err);
-    if(rows.length){
-     return done(null, false, req.flash('signupMessage', 'That is already taken'));
-    }else{
-     var newUserMysql = {
-      username: username,
-      password: bcrypt.hashSync(password, null, null)
-     };
+  function(email, password, done) {
+    // When a user tries to sign in this code runs
+    db.User.findOne({
+      where: {
+        email: email
+      }
+    }).then(function(dbUser) {
+      // If there's no user with the given email
+      if (!dbUser) {
+        return done(null, false, {
+          message: "Incorrect email."
+        });
+      }
+      // If there is a user with the given email, but the password the user gives us is incorrect
+      else if (!dbUser.validPassword(password)) {
+        return done(null, false, {
+          message: "Incorrect password."
+        });
+      }
+      // If none of the above, return the user
+      return done(null, dbUser);
+    });
+  }
+));
 
-     var insertQuery = "INSERT INTO users (username, password) values (?, ?)";
+// In order to help keep authentication state across HTTP requests,
+// Sequelize needs to serialize and deserialize the user
+// Just consider this part boilerplate needed to make it all work
+passport.serializeUser(function(user, cb) {
+  cb(null, user);
+});
 
-     connection.query(insertQuery, [newUserMysql.username, newUserMysql.password],
-      function(err, rows){
-       newUserMysql.id = rows.insertId;
+passport.deserializeUser(function(obj, cb) {
+  cb(null, obj);
+});
 
-       return done(null, newUserMysql);
-      });
-    }
-   });
-  })
- );
-
- passport.use(
-  'local-login',
-  new LocalStrategy({
-   usernameField : 'username',
-   passwordField: 'password',
-   passReqToCallback: true
-  },
-  function(req, username, password, done){
-   connection.query("SELECT * FROM users WHERE username = ? ", [username],
-   function(err, rows){
-    if(err)
-     return done(err);
-    if(!rows.length){
-     return done(null, false, req.flash('loginMessage', 'No User Found'));
-    }
-    if(!bcrypt.compareSync(password, rows[0].password))
-     return done(null, false, req.flash('loginMessage', 'Wrong Password'));
-
-    return done(null, rows[0]);
-   });
-  })
- );
-};
+// Exporting our configured passport
+module.exports = passport;
