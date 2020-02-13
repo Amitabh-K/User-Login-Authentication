@@ -7,39 +7,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
   <link href="stylesheets/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      </div>
-    </div>
-  </nav>
+
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <h2>Sign Up Form</h2>
-        <form class="signup">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
-          </div>
-          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span> <span class="msg"></span>
-          </div>
-          <button type="submit" class="btn btn-default">Sign Up</button>
-        </form>
-        <br />
-        <p>Or log in <a href="/login">here</a></p>
+        <h2> <span class="member-name"></span></h2>
       </div>
     </div>
-  </div>
+  
+    <div id="home" data-spy="scroll" data-target="#main-nav">
+      <nav class="navbar navbar-expand-md navbar-light fixed-top py-4" id="main-nav">
+        <div class="container">
+          <a href="#home" class="navbar-brand mb-3">
+            <img src="img/mlogo.png" width="" height="50" alt="">
+            <h3 class="d-inline align-middle">Authors</h3>
+  
+          </a>
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a href="#" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">About</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Meet The Authors</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Contact</a>
+              </li>
+              <li class="navbar-header">
+                <a class="navbar-brand" href="/">
+                  
+                </a>
+            </ul>
+          </li>
+        </div>
+      </nav>
+    
+      <!-- SHOWCASE -->
+      <section id="showcase" class="py-5">
+        <div class="primary-overlay text-white">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 text-center">
+                <br><br>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                      <h1 >Sign Up</h1> To Explore and Share Your Learnings
+                      <form class="signup">
+                        <div class="form-group">
+                          <label  class="display-4 for="exampleInputEmail1">Email address</label>
+                          <input type="email" class="form-control" id="email-input" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                          <label  class="display-4 for="exampleInputPassword1">Password</label>
+                          <input type="password" class="form-control" id="password-input" placeholder="Password">
+                        </div>
+                        <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                          <span class="sr-only">Error:</span> <span class="msg"></span>
+                        </div>
+                        <button type="submit" class="btn btn-default">Sign Up</button>
+                      </form>
+                      <br />
+                      <button class="btn btn-light"> <a  href="/login"> Or Log in here</a> </button>
+                    </div>
+                  </div>
+                </div>
+
+              
+                <p class="lead">Keep watching this space for more; I assure you won't be disappointed'!</p>
+                <a href="#" class="btn btn-outline-secondary btn-lg text-white">
+                  <i class="fas fa-arrow-right"></i> Read More
+                </a>
+              </div>
+  
+  
+              
+              <div class="col-lg-6">
+                <img src="img/book.png" alt="" class="img-fluid d-none d-lg-block">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/signup.js"></script>
