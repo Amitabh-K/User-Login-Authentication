@@ -1,8 +1,18 @@
 body {
   margin-top: 105px; }
+  .body{
+    background-image : url(https://lh3.googleusercontent.com/vgbDXGLqrLaQxsLtSZ94eC15u11EDzadzeJiutfD3Ln8Iir1QDUFUbN18s8nGeWQafw2jFHjotvvfGOTmK3BeP_qy4V1oROAMMld0kr1HoPeZwxuvnW2yM-2r_Cnk7VEKEhbBzT0yVXWMOxnAH7K-csmSSxG3EZEoMLWYo_IeJ0gNuPnVy2ll_Rlfyu5EMjzcEl30oFfqBamPkbJHswFxsgKNJM0Rs0715V8nT_4_QCeRuZeRktZZFfiaNpt0cMISaDqvAW0Biaj_IIMzrQ339IvifcUhzwier9bmVymxHr-qqpwomBNpqY6SDLa_k1ZyZ4TfKosS47S1K1ENhwgGDqRJfQ0YD8jzEQXhiQvndE-bYHUlHX7vLaUHLfyAL5Kml9mTjjWUTpQYXUM1QK59ChLLf20Emy1Dxms8ChEdTSeAjREW34qBmHK260WNRNpPxNWFGziLY6SrdNVOPW_2qnLAI4kQhk2rLzi0WW4fvS4OpfVfW2un9xoTFS7J6Geq7pCxLr9yMA55ssF6M1RsI3lzhk9TS5bP-sJbjIdYL-1NeZaPOsNi_ufQeOQIECaFiVWOEtVswl9hJx7jQzBmUnlxQLRv4IwrRS5_EDNZkDBcEk5Dl9oA82Zt6YiG07YZPuutlagEG_ClfS3peqMq22u5B6KQWdSGSQowm5_nCk7zCwMps1PUA=w1388-h708-no);;
+    background-repeat: no-repeat;
+    
+  }
+
+
+  .log2{
+    background-color: aquamarine;
+  }
 
 .navbar {
-  box-shadow: 2px 2px 5px #3292a6;
+  box-shadow: 2px 2px 5px #427e26;
   opacity: 0.9;
   background: #fff; }
   .navbar .nav-item {
