@@ -36,7 +36,7 @@ nodemon server.js
 
 * JawsDB used as an add-on for providing a fully functional MySQL Database
 
-The database is 'passport_demo', with one table 'users'. This will be scaled up with couple of more tables.
+* The database is 'passport_demo', with one table 'users'. This will be scaled up with couple of more tables.
 
 Use MySQL workbench and 
 
@@ -49,7 +49,9 @@ CREATE DATABASE passport_demo;
 
 ## Application Links
 
-[Deployed-at] (http://enigmatic-savannah-06848.herokuapp.com/)
-[GitHub-repo] (https://github.com/Amitabh-K/User-Login-Authentication/)
+
+* [Deployed-at] (http://enigmatic-savannah-06848.herokuapp.com/)
+
+* [GitHub-repo] (https://github.com/Amitabh-K/User-Login-Authentication/)
 
 
