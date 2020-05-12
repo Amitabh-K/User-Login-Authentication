@@ -1,3 +1,6 @@
+[![HitCount](http://hits.dwyl.com/Amitabh-K/User-Login-Authentication.svg)](http://hits.dwyl.com/Amitabh-K/User-Login-Authentication)
+
+
 # User-Login-Authentication
 
 User Login/Authentication demonstration application developed in Nodejs using Express, Passport, Bcryptjs & MySQL.
